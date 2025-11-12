@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crowned Creative</title>
+</head>
+<body style="margin:0; font-family:Helvetica, Arial, sans-serif; background-color:#faf9f6; color:#111; scroll-snap-type:y mandatory; overflow-y:scroll; height:100vh;">
+
+  <!-- Header -->
+  <header id="mainHeader" style="
+    position:fixed; top:0; left:0; width:100%; z-index:10;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:25px 40px; background-color:transparent; border-bottom:1px solid #111;
+    transition:all 0.4s ease;">
+    
+    <div id="logo" style="font-size:24px; font-weight:700; letter-spacing:1px; transition:font-size 0.4s ease;">CROWNED.</div>
+    <nav id="nav" style="display:flex; gap:30px; font-size:14px; letter-spacing:0.5px; transition:font-size 0.4s ease;">
+      <a href="#" style="text-decoration:none; color:#111;">ABOUT</a>
+      <a href="#" style="text-decoration:none; color:#111;">SHOWCASE</a>
+      <a href="#" style="text-decoration:none; color:#111;">SERVICES</a>
+      <a href="#" style="text-decoration:none; color:#111;">CONTACT</a>
+    </nav>
+    <a id="cta" href="#" style="
+  text-decoration:none; 
+  color:#111; 
+  border:1px solid #111; 
+  padding:10px 40px; 
+  display:inline-block; 
+  line-height:1.2; 
+  font-size:13px; 
+  letter-spacing:0.8px; 
+  transition:all 0.4s ease;
+  margin-right:50px;">
+  WORK WITH US
+</a>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section id="hero" style="
+    height:100vh; width:100%;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    scroll-snap-align:start; position:relative; overflow:hidden; background-color:#fff;
+    padding-top:120px; /* pushes content below header */">
+    
+    <!-- Big text -->
+    <h1 style="
+      font-size:8vw; 
+      font-weight:700; 
+      letter-spacing:-3px; 
+      text-align:center; 
+      margin:0; 
+      color:#000;
+      position:relative;
+      z-index:2;">
+      CROWNED — CREATIVE.
+    </h1>
+
+    <!-- Image container -->
+    <div style="
+      position:relative; 
+      margin-top:-7vw;
+      width:350px; 
+      height:550px; 
+      overflow:hidden;
+      z-index:1;
+      box-shadow:0 10px 30px rgba(0,0,0,0.08);">
+      
+      <!-- Crossfade images -->
+      <img id="img1" src="hero_1.jpg" style="
+        position:absolute; top:0; left:0; width:100%; height:100%;
+        object-fit:cover; filter:grayscale(100%);
+        opacity:1; transition:opacity 1.5s ease;">
+      
+      <img id="img2" src="hero_2.jpg" style="
+        position:absolute; top:0; left:0; width:100%; height:100%;
+        object-fit:cover; filter:grayscale(100%);
+        opacity:0; transition:opacity 1.5s ease;">
+    </div>
+
+    <!-- Subtext -->
+    <div style="
+  margin-top:60px; 
+  text-align:center; 
+  max-width:700px; 
+  font-size:14px; 
+  letter-spacing:0.5px; 
+  line-height:1.6;
+  font-family:Helvetica, Arial, sans-serif; 
+  font-weight:500;
+  text-transform:uppercase;">
+  <p>We are Crowned Creative — a design and brand studio based on the South Coast of South Africa.</p>
+  <p>We help founders and dreamers build timeless, conversion-driven brands that reflect their heart.</p>
+  <p>Let’s create something intentional, elegant, and a little bit magical.</p>
+</div>
+
+  <!-- SECOND SECTION -->
+  <section style="
+    height:100vh; width:100%; 
+    background-color:#f0efeb; 
+    display:flex; align-items:center; justify-content:center;
+    scroll-snap-align:start;">
+    <h2 style="font-size:3rem; font-weight:400; letter-spacing:1px;">Next Section</h2>
+  </section>
+
+  <!-- SCRIPTS -->
+  <script>
+    // Header shrink + color change
+    window.addEventListener('scroll', function() {
+      const header = document.getElementById('mainHeader');
+      const logo = document.getElementById('logo');
+      const nav = document.getElementById('nav');
+      const cta = document.getElementById('cta');
+      if (window.scrollY > 50) {
+        header.style.backgroundColor = '#dfddcf';
+        header.style.padding = '12px 40px';
+        logo.style.fontSize = '18px';
+        nav.style.fontSize = '12px';
+        cta.style.fontSize = '11px';
+        cta.style.padding = '6px 12px';
+      } else {
+        header.style.backgroundColor = 'transparent';
+        header.style.padding = '25px 40px';
+        logo.style.fontSize = '24px';
+        nav.style.fontSize = '14px';
+        cta.style.fontSize = '13px';
+        cta.style.padding = '10px 18px';
+      }
+    });
+
+    // Crossfade between images
+    const img1 = document.getElementById('img1');
+    const img2 = document.getElementById('img2');
+    let showingFirst = true;
+
+    setInterval(() => {
+      if (showingFirst) {
+        img1.style.opacity = 0;
+        img2.style.opacity = 1;
+      } else {
+        img1.style.opacity = 1;
+        img2.style.opacity = 0;
+      }
+      showingFirst = !showingFirst;
+    }, 4000);
+  </script>
+
+</body>
+</html>
